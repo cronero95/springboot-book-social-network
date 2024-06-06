@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "application.security.jwt.secretkey",
+    "type": "java.lang.String",
+    "description": "A secret key to sign tokens"
+  },
+  {
+    "name": "application.security.jwt.expiration",
+    "type": "java.lang.String",
+    "description": "Time in miliseconds that a token will be alive"
+  }
+]}
