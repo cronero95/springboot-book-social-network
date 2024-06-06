@@ -22,7 +22,7 @@ public class JwtService {
     private Long jwtExpiration;
     @Value("${application.security.jwt.secretkey}")
     private String secretKey;
-    private String encodeSecretKey = Encoders.BASE64.encode(secretKey.getBytes());
+    private String encodedSecretKey = Encoders.BASE64.encode(secretKey.getBytes());
 
     public String generateToken(
         UserDetails userDetails
@@ -58,7 +58,7 @@ public class JwtService {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(encodeSecretKey);
+        byte[] keyBytes = Decoders.BASE64.decode(encodedSecretKey);
 
         return Keys.hmacShaKeyFor(keyBytes);
     }
