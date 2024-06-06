@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
@@ -21,6 +22,7 @@ public class JwtService {
     private Long jwtExpiration;
     @Value("${application.security.jwt.secretkey}")
     private String secretKey;
+    private String encodeSecretKey = Encoders.BASE64.encode(secretKey.getBytes());
 
     public String generateToken(
         UserDetails userDetails
@@ -56,7 +58,7 @@ public class JwtService {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        byte[] keyBytes = Decoders.BASE64.decode(encodeSecretKey);
 
         return Keys.hmacShaKeyFor(keyBytes);
     }
