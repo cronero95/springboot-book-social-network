@@ -8,5 +8,10 @@
     "name": "application.security.jwt.expiration",
     "type": "java.lang.String",
     "description": "Time in miliseconds that a token will be alive"
+  },
+  {
+    "name": "application.mailing.frontend.activation-url",
+    "type": "java.lang.String",
+    "description": "Url where the activation page is"
   }
 ]}
