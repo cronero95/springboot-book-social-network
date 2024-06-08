@@ -35,7 +35,7 @@ public class EmailService {
         String templateName;
 
         if(emailTemplateName == null) {
-            templateName = "confirm_email";
+            templateName = "confirm-email";
         } else {
             templateName = emailTemplateName.name();
         }
